@@ -230,7 +230,7 @@ def get_peer_id(peer: raw.base.Peer) -> int:
     if isinstance(peer, raw.types.PeerChannel):
         return MAX_CHANNEL_ID - peer.channel_id
 
-    raise ValueError(f"Peer type invalid: {peer}")
+    raise None
 
 
 def get_peer_type(peer_id: int) -> str:
