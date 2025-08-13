@@ -230,7 +230,7 @@ def get_peer_id(peer: raw.base.Peer) -> int:
     if isinstance(peer, raw.types.PeerChannel):
         return MAX_CHANNEL_ID - peer.channel_id
 
-    raise None
+    return None
 
 
 def get_peer_type(peer_id: int) -> str:
@@ -243,7 +243,7 @@ def get_peer_type(peer_id: int) -> str:
     elif 0 < peer_id <= MAX_USER_ID:
         return "user"
 
-    raise None
+    return None
 
 
 def get_channel_id(peer_id: int) -> int:
