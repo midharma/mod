@@ -30,7 +30,11 @@ class TLObject:
 
     @classmethod
     def read(cls, b: BytesIO, *args: Any) -> Any:
-        return cast(TLObject, objects[int.from_bytes(b.read(4), "little")]).read(b, *args)
+        try:
+            constructor_id = int.from_bytes(b.read(4), "little")
+            return cast(TLObject, objects[constructor_id]).read(b, *args)
+        except KeyError:
+            return None
 
     def write(self, *args: Any) -> bytes:
         pass
